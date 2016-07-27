@@ -2,8 +2,8 @@
 set -e
 dir=`mktemp -d`
 pushd $dir
-  #git clone git://github.com/AeonLucid/POGOProtos.git protos
-  git clone git://github.com/relrod/POGOProtos.git protos
+  git clone git://github.com/AeonLucid/POGOProtos.git protos
+  #git clone git://github.com/relrod/POGOProtos.git protos
   cd protos/src
   mkdir hs
   find -name '*.proto' | xargs protoc \

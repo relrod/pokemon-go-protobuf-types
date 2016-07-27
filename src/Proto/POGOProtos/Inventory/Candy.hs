@@ -14,15 +14,15 @@ import qualified Data.Int
 import qualified Data.Word
 import qualified Data.Map
 import qualified Data.ByteString
-import qualified Proto.POGOProtos.Enums.PokemonId
+import qualified Proto.POGOProtos.Enums.PokemonFamilyId
 
 data Candy = Candy{_Candy'familyId ::
-                   Proto.POGOProtos.Enums.PokemonId.PokemonId,
+                   Proto.POGOProtos.Enums.PokemonFamilyId.PokemonFamilyId,
                    _Candy'candy :: Data.Int.Int32}
            deriving (Prelude.Show, Prelude.Eq)
 
 type instance Data.ProtoLens.Field "familyId" Candy =
-     Proto.POGOProtos.Enums.PokemonId.PokemonId
+     Proto.POGOProtos.Enums.PokemonFamilyId.PokemonFamilyId
 
 instance Data.ProtoLens.HasField "familyId" Candy Candy where
         field _
@@ -47,7 +47,7 @@ instance Data.ProtoLens.Message Candy where
                   = Data.ProtoLens.FieldDescriptor "family_id"
                       (Data.ProtoLens.EnumField ::
                          Data.ProtoLens.FieldTypeDescriptor
-                           Proto.POGOProtos.Enums.PokemonId.PokemonId)
+                           Proto.POGOProtos.Enums.PokemonFamilyId.PokemonFamilyId)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional familyId)
                 candy__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "candy"

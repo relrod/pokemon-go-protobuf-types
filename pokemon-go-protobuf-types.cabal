@@ -9,7 +9,6 @@ maintainer:          ricky@elrod.me
 copyright:           (c) 2016 Ricky Elrod
 category:            Game
 build-type:          Simple
-extra-source-files:  ChangeLog.md
 cabal-version:       >= 1.10
 
 library

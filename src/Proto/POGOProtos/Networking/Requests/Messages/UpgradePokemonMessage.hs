@@ -39,7 +39,7 @@ instance Data.ProtoLens.Message UpgradePokemonMessage where
         descriptor
           = let pokemonId__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "pokemon_id"
-                      (Data.ProtoLens.UInt64Field ::
+                      (Data.ProtoLens.Fixed64Field ::
                          Data.ProtoLens.FieldTypeDescriptor Data.Word.Word64)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional pokemonId)
               in

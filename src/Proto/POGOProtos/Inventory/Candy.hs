@@ -1,8 +1,8 @@
-{- This file was auto-generated from POGOProtos/Inventory/PokemonFamily.proto by the proto-lens-protoc program. -}
+{- This file was auto-generated from POGOProtos/Inventory/Candy.proto by the proto-lens-protoc program. -}
 {-# LANGUAGE ScopedTypeVariables, DataKinds, TypeFamilies,
   MultiParamTypeClasses, FlexibleContexts, FlexibleInstances #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports#-}
-module Proto.POGOProtos.Inventory.PokemonFamily where
+module Proto.POGOProtos.Inventory.Candy where
 import qualified Prelude
 import qualified Data.ProtoLens
 import qualified Data.ProtoLens.Message.Enum
@@ -14,43 +14,40 @@ import qualified Data.Int
 import qualified Data.Word
 import qualified Data.Map
 import qualified Data.ByteString
-import qualified Proto.POGOProtos.Enums.PokemonFamilyId
+import qualified Proto.POGOProtos.Enums.PokemonId
 
-data PokemonFamily = PokemonFamily{_PokemonFamily'familyId ::
-                                   Proto.POGOProtos.Enums.PokemonFamilyId.PokemonFamilyId,
-                                   _PokemonFamily'candy :: Data.Int.Int32}
-                   deriving (Prelude.Show, Prelude.Eq)
+data Candy = Candy{_Candy'familyId ::
+                   Proto.POGOProtos.Enums.PokemonId.PokemonId,
+                   _Candy'candy :: Data.Int.Int32}
+           deriving (Prelude.Show, Prelude.Eq)
 
-type instance Data.ProtoLens.Field "familyId" PokemonFamily =
-     Proto.POGOProtos.Enums.PokemonFamilyId.PokemonFamilyId
+type instance Data.ProtoLens.Field "familyId" Candy =
+     Proto.POGOProtos.Enums.PokemonId.PokemonId
 
-instance Data.ProtoLens.HasField "familyId" PokemonFamily
-         PokemonFamily where
+instance Data.ProtoLens.HasField "familyId" Candy Candy where
         field _
-          = Lens.Family2.Unchecked.lens _PokemonFamily'familyId
-              (\ x__ y__ -> x__{_PokemonFamily'familyId = y__})
+          = Lens.Family2.Unchecked.lens _Candy'familyId
+              (\ x__ y__ -> x__{_Candy'familyId = y__})
 
-type instance Data.ProtoLens.Field "candy" PokemonFamily =
-     Data.Int.Int32
+type instance Data.ProtoLens.Field "candy" Candy = Data.Int.Int32
 
-instance Data.ProtoLens.HasField "candy" PokemonFamily
-         PokemonFamily where
+instance Data.ProtoLens.HasField "candy" Candy Candy where
         field _
-          = Lens.Family2.Unchecked.lens _PokemonFamily'candy
-              (\ x__ y__ -> x__{_PokemonFamily'candy = y__})
+          = Lens.Family2.Unchecked.lens _Candy'candy
+              (\ x__ y__ -> x__{_Candy'candy = y__})
 
-instance Data.Default.Class.Default PokemonFamily where
+instance Data.Default.Class.Default Candy where
         def
-          = PokemonFamily{_PokemonFamily'familyId = Data.Default.Class.def,
-                          _PokemonFamily'candy = Data.ProtoLens.fieldDefault}
+          = Candy{_Candy'familyId = Data.Default.Class.def,
+                  _Candy'candy = Data.ProtoLens.fieldDefault}
 
-instance Data.ProtoLens.Message PokemonFamily where
+instance Data.ProtoLens.Message Candy where
         descriptor
           = let familyId__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "family_id"
                       (Data.ProtoLens.EnumField ::
                          Data.ProtoLens.FieldTypeDescriptor
-                           Proto.POGOProtos.Enums.PokemonFamilyId.PokemonFamilyId)
+                           Proto.POGOProtos.Enums.PokemonId.PokemonId)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional familyId)
                 candy__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "candy"

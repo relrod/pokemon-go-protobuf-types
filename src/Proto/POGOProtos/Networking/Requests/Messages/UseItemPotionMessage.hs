@@ -57,7 +57,7 @@ instance Data.ProtoLens.Message UseItemPotionMessage where
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional itemId)
                 pokemonId__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "pokemon_id"
-                      (Data.ProtoLens.UInt64Field ::
+                      (Data.ProtoLens.Fixed64Field ::
                          Data.ProtoLens.FieldTypeDescriptor Data.Word.Word64)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional pokemonId)
               in

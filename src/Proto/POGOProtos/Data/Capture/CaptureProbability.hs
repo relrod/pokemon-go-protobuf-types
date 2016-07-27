@@ -71,12 +71,12 @@ instance Data.ProtoLens.Message CaptureProbability where
                       (Data.ProtoLens.EnumField ::
                          Data.ProtoLens.FieldTypeDescriptor
                            Proto.POGOProtos.Inventory.Item.ItemId.ItemId)
-                      (Data.ProtoLens.RepeatedField Data.ProtoLens.Unpacked pokeballType)
+                      (Data.ProtoLens.RepeatedField Data.ProtoLens.Packed pokeballType)
                 captureProbability__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "capture_probability"
                       (Data.ProtoLens.FloatField ::
                          Data.ProtoLens.FieldTypeDescriptor Prelude.Float)
-                      (Data.ProtoLens.RepeatedField Data.ProtoLens.Unpacked
+                      (Data.ProtoLens.RepeatedField Data.ProtoLens.Packed
                          captureProbability)
                 reticleDifficultyScale__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "reticle_difficulty_scale"

@@ -28,7 +28,7 @@ data PokemonData = PokemonData{_PokemonData'id :: Data.Word.Word64,
                                Proto.POGOProtos.Enums.PokemonMove.PokemonMove,
                                _PokemonData'move2 ::
                                Proto.POGOProtos.Enums.PokemonMove.PokemonMove,
-                               _PokemonData'deployedFortId :: Data.Int.Int32,
+                               _PokemonData'deployedFortId :: Data.Text.Text,
                                _PokemonData'ownerName :: Data.Text.Text,
                                _PokemonData'isEgg :: Prelude.Bool,
                                _PokemonData'eggKmWalkedTarget :: Prelude.Double,
@@ -116,7 +116,7 @@ instance Data.ProtoLens.HasField "move2" PokemonData PokemonData
               (\ x__ y__ -> x__{_PokemonData'move2 = y__})
 
 type instance Data.ProtoLens.Field "deployedFortId" PokemonData =
-     Data.Int.Int32
+     Data.Text.Text
 
 instance Data.ProtoLens.HasField "deployedFortId" PokemonData
          PokemonData where
@@ -398,8 +398,8 @@ instance Data.ProtoLens.Message PokemonData where
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional move2)
                 deployedFortId__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "deployed_fort_id"
-                      (Data.ProtoLens.Int32Field ::
-                         Data.ProtoLens.FieldTypeDescriptor Data.Int.Int32)
+                      (Data.ProtoLens.StringField ::
+                         Data.ProtoLens.FieldTypeDescriptor Data.Text.Text)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional deployedFortId)
                 ownerName__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "owner_name"

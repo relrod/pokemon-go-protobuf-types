@@ -88,7 +88,7 @@ instance Data.ProtoLens.Message FortRecallPokemonMessage where
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional fortId)
                 pokemonId__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "pokemon_id"
-                      (Data.ProtoLens.UInt64Field ::
+                      (Data.ProtoLens.Fixed64Field ::
                          Data.ProtoLens.FieldTypeDescriptor Data.Word.Word64)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional pokemonId)
                 playerLatitude__field_descriptor

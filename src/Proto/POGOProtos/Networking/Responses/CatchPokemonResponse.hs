@@ -103,7 +103,7 @@ instance Data.ProtoLens.Message CatchPokemonResponse where
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional missPercent)
                 capturedPokemonId__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "captured_pokemon_id"
-                      (Data.ProtoLens.UInt64Field ::
+                      (Data.ProtoLens.Fixed64Field ::
                          Data.ProtoLens.FieldTypeDescriptor Data.Word.Word64)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional
                          capturedPokemonId)

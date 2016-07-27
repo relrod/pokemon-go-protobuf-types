@@ -19,12 +19,13 @@ import qualified Proto.POGOProtos.Data.Player.Currency
 import qualified Proto.POGOProtos.Data.Player.DailyBonus
 import qualified Proto.POGOProtos.Data.Player.EquippedBadge
 import qualified Proto.POGOProtos.Data.Player.PlayerAvatar
+import qualified Proto.POGOProtos.Enums.TeamColor
 import qualified Proto.POGOProtos.Enums.TutorialState
 
 data PlayerData = PlayerData{_PlayerData'creationTimestampMs ::
                              Data.Int.Int64,
                              _PlayerData'username :: Data.Text.Text,
-                             _PlayerData'team :: Data.Int.Int32,
+                             _PlayerData'team :: Proto.POGOProtos.Enums.TeamColor.TeamColor,
                              _PlayerData'tutorialState ::
                              [Proto.POGOProtos.Enums.TutorialState.TutorialState],
                              _PlayerData'avatar ::
@@ -63,7 +64,7 @@ instance Data.ProtoLens.HasField "username" PlayerData PlayerData
               (\ x__ y__ -> x__{_PlayerData'username = y__})
 
 type instance Data.ProtoLens.Field "team" PlayerData =
-     Data.Int.Int32
+     Proto.POGOProtos.Enums.TeamColor.TeamColor
 
 instance Data.ProtoLens.HasField "team" PlayerData PlayerData where
         field _
@@ -188,7 +189,7 @@ instance Data.Default.Class.Default PlayerData where
           = PlayerData{_PlayerData'creationTimestampMs =
                          Data.ProtoLens.fieldDefault,
                        _PlayerData'username = Data.ProtoLens.fieldDefault,
-                       _PlayerData'team = Data.ProtoLens.fieldDefault,
+                       _PlayerData'team = Data.Default.Class.def,
                        _PlayerData'tutorialState = [],
                        _PlayerData'avatar = Prelude.Nothing,
                        _PlayerData'maxPokemonStorage = Data.ProtoLens.fieldDefault,
@@ -213,8 +214,9 @@ instance Data.ProtoLens.Message PlayerData where
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional username)
                 team__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "team"
-                      (Data.ProtoLens.Int32Field ::
-                         Data.ProtoLens.FieldTypeDescriptor Data.Int.Int32)
+                      (Data.ProtoLens.EnumField ::
+                         Data.ProtoLens.FieldTypeDescriptor
+                           Proto.POGOProtos.Enums.TeamColor.TeamColor)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional team)
                 tutorialState__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "tutorial_state"

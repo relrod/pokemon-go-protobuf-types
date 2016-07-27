@@ -14,7 +14,6 @@ import qualified Data.Int
 import qualified Data.Word
 import qualified Data.Map
 import qualified Data.ByteString
-import qualified Proto.POGOProtos.Enums.PokemonFamilyId
 import qualified Proto.POGOProtos.Enums.PokemonId
 import qualified Proto.POGOProtos.Enums.PokemonMove
 import qualified Proto.POGOProtos.Enums.PokemonRarity
@@ -60,7 +59,7 @@ data PokemonSettings = PokemonSettings{_PokemonSettings'pokemonId
                                        _PokemonSettings'weightStdDev :: Prelude.Float,
                                        _PokemonSettings'kmDistanceToHatch :: Prelude.Float,
                                        _PokemonSettings'familyId ::
-                                       Proto.POGOProtos.Enums.PokemonFamilyId.PokemonFamilyId,
+                                       Proto.POGOProtos.Enums.PokemonId.PokemonId,
                                        _PokemonSettings'candyToEvolve :: Data.Int.Int32}
                      deriving (Prelude.Show, Prelude.Eq)
 
@@ -270,7 +269,7 @@ instance Data.ProtoLens.HasField "kmDistanceToHatch"
               (\ x__ y__ -> x__{_PokemonSettings'kmDistanceToHatch = y__})
 
 type instance Data.ProtoLens.Field "familyId" PokemonSettings =
-     Proto.POGOProtos.Enums.PokemonFamilyId.PokemonFamilyId
+     Proto.POGOProtos.Enums.PokemonId.PokemonId
 
 instance Data.ProtoLens.HasField "familyId" PokemonSettings
          PokemonSettings where
@@ -427,7 +426,7 @@ instance Data.ProtoLens.Message PokemonSettings where
                   = Data.ProtoLens.FieldDescriptor "family_id"
                       (Data.ProtoLens.EnumField ::
                          Data.ProtoLens.FieldTypeDescriptor
-                           Proto.POGOProtos.Enums.PokemonFamilyId.PokemonFamilyId)
+                           Proto.POGOProtos.Enums.PokemonId.PokemonId)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional familyId)
                 candyToEvolve__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "candy_to_evolve"

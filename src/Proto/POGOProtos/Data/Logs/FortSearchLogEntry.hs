@@ -14,7 +14,6 @@ import qualified Data.Int
 import qualified Data.Word
 import qualified Data.Map
 import qualified Data.ByteString
-import qualified Proto.POGOProtos.Enums.PokemonId
 import qualified Proto.POGOProtos.Inventory.Item.ItemData
 
 data FortSearchLogEntry = FortSearchLogEntry{_FortSearchLogEntry'result

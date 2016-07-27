@@ -107,7 +107,7 @@ instance Data.ProtoLens.Message AssetDigestEntry where
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional version)
                 checksum__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "checksum"
-                      (Data.ProtoLens.UInt32Field ::
+                      (Data.ProtoLens.Fixed32Field ::
                          Data.ProtoLens.FieldTypeDescriptor Data.Word.Word32)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional checksum)
                 size__field_descriptor

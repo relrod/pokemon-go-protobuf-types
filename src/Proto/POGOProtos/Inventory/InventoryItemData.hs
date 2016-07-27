@@ -20,10 +20,10 @@ import qualified Proto.POGOProtos.Data.Player.PlayerStats
 import qualified Proto.POGOProtos.Data.PokedexEntry
 import qualified Proto.POGOProtos.Data.PokemonData
 import qualified Proto.POGOProtos.Inventory.AppliedItems
+import qualified Proto.POGOProtos.Inventory.Candy
 import qualified Proto.POGOProtos.Inventory.EggIncubators
 import qualified Proto.POGOProtos.Inventory.InventoryUpgrades
 import qualified Proto.POGOProtos.Inventory.Item.ItemData
-import qualified Proto.POGOProtos.Inventory.PokemonFamily
 
 data InventoryItemData = InventoryItemData{_InventoryItemData'pokemonData
                                            ::
@@ -53,9 +53,8 @@ data InventoryItemData = InventoryItemData{_InventoryItemData'pokemonData
                                            _InventoryItemData'eggIncubators ::
                                            Prelude.Maybe
                                              Proto.POGOProtos.Inventory.EggIncubators.EggIncubators,
-                                           _InventoryItemData'pokemonFamily ::
-                                           Prelude.Maybe
-                                             Proto.POGOProtos.Inventory.PokemonFamily.PokemonFamily}
+                                           _InventoryItemData'candy ::
+                                           Prelude.Maybe Proto.POGOProtos.Inventory.Candy.Candy}
                        deriving (Prelude.Show, Prelude.Eq)
 
 type instance Data.ProtoLens.Field "pokemonData" InventoryItemData
@@ -235,26 +234,23 @@ instance Data.ProtoLens.HasField "maybe'eggIncubators"
           = Lens.Family2.Unchecked.lens _InventoryItemData'eggIncubators
               (\ x__ y__ -> x__{_InventoryItemData'eggIncubators = y__})
 
-type instance
-     Data.ProtoLens.Field "pokemonFamily" InventoryItemData =
-     Proto.POGOProtos.Inventory.PokemonFamily.PokemonFamily
+type instance Data.ProtoLens.Field "candy" InventoryItemData =
+     Proto.POGOProtos.Inventory.Candy.Candy
 
-instance Data.ProtoLens.HasField "pokemonFamily" InventoryItemData
+instance Data.ProtoLens.HasField "candy" InventoryItemData
          InventoryItemData where
         field _
-          = (Prelude..) maybe'pokemonFamily
+          = (Prelude..) maybe'candy
               (Data.ProtoLens.maybeLens Data.Default.Class.def)
 
-type instance
-     Data.ProtoLens.Field "maybe'pokemonFamily" InventoryItemData =
-     Prelude.Maybe
-       Proto.POGOProtos.Inventory.PokemonFamily.PokemonFamily
+type instance Data.ProtoLens.Field "maybe'candy" InventoryItemData
+     = Prelude.Maybe Proto.POGOProtos.Inventory.Candy.Candy
 
-instance Data.ProtoLens.HasField "maybe'pokemonFamily"
-         InventoryItemData InventoryItemData where
+instance Data.ProtoLens.HasField "maybe'candy" InventoryItemData
+         InventoryItemData where
         field _
-          = Lens.Family2.Unchecked.lens _InventoryItemData'pokemonFamily
-              (\ x__ y__ -> x__{_InventoryItemData'pokemonFamily = y__})
+          = Lens.Family2.Unchecked.lens _InventoryItemData'candy
+              (\ x__ y__ -> x__{_InventoryItemData'candy = y__})
 
 instance Data.Default.Class.Default InventoryItemData where
         def
@@ -268,7 +264,7 @@ instance Data.Default.Class.Default InventoryItemData where
                               _InventoryItemData'inventoryUpgrades = Prelude.Nothing,
                               _InventoryItemData'appliedItems = Prelude.Nothing,
                               _InventoryItemData'eggIncubators = Prelude.Nothing,
-                              _InventoryItemData'pokemonFamily = Prelude.Nothing}
+                              _InventoryItemData'candy = Prelude.Nothing}
 
 instance Data.ProtoLens.Message InventoryItemData where
         descriptor
@@ -326,12 +322,12 @@ instance Data.ProtoLens.Message InventoryItemData where
                          Data.ProtoLens.FieldTypeDescriptor
                            Proto.POGOProtos.Inventory.EggIncubators.EggIncubators)
                       (Data.ProtoLens.OptionalField maybe'eggIncubators)
-                pokemonFamily__field_descriptor
-                  = Data.ProtoLens.FieldDescriptor "pokemon_family"
+                candy__field_descriptor
+                  = Data.ProtoLens.FieldDescriptor "candy"
                       (Data.ProtoLens.MessageField ::
                          Data.ProtoLens.FieldTypeDescriptor
-                           Proto.POGOProtos.Inventory.PokemonFamily.PokemonFamily)
-                      (Data.ProtoLens.OptionalField maybe'pokemonFamily)
+                           Proto.POGOProtos.Inventory.Candy.Candy)
+                      (Data.ProtoLens.OptionalField maybe'candy)
               in
               Data.ProtoLens.MessageDescriptor
                 (Data.Map.fromList
@@ -344,7 +340,7 @@ instance Data.ProtoLens.Message InventoryItemData where
                     (Data.ProtoLens.Tag 7, inventoryUpgrades__field_descriptor),
                     (Data.ProtoLens.Tag 8, appliedItems__field_descriptor),
                     (Data.ProtoLens.Tag 9, eggIncubators__field_descriptor),
-                    (Data.ProtoLens.Tag 10, pokemonFamily__field_descriptor)])
+                    (Data.ProtoLens.Tag 10, candy__field_descriptor)])
                 (Data.Map.fromList
                    [("pokemon_data", pokemonData__field_descriptor),
                     ("item", item__field_descriptor),
@@ -355,7 +351,7 @@ instance Data.ProtoLens.Message InventoryItemData where
                     ("inventory_upgrades", inventoryUpgrades__field_descriptor),
                     ("applied_items", appliedItems__field_descriptor),
                     ("egg_incubators", eggIncubators__field_descriptor),
-                    ("pokemon_family", pokemonFamily__field_descriptor)])
+                    ("candy", candy__field_descriptor)])
 
 appliedItems ::
              forall msg msg' .
@@ -366,6 +362,14 @@ appliedItems ::
 appliedItems
   = Data.ProtoLens.field
       (Data.ProtoLens.ProxySym :: Data.ProtoLens.ProxySym "appliedItems")
+
+candy ::
+      forall msg msg' . Data.ProtoLens.HasField "candy" msg msg' =>
+        Lens.Family2.Lens msg msg' (Data.ProtoLens.Field "candy" msg)
+          (Data.ProtoLens.Field "candy" msg')
+candy
+  = Data.ProtoLens.field
+      (Data.ProtoLens.ProxySym :: Data.ProtoLens.ProxySym "candy")
 
 eggIncubators ::
               forall msg msg' .
@@ -407,6 +411,14 @@ maybe'appliedItems
   = Data.ProtoLens.field
       (Data.ProtoLens.ProxySym ::
          Data.ProtoLens.ProxySym "maybe'appliedItems")
+
+maybe'candy ::
+            forall msg msg' . Data.ProtoLens.HasField "maybe'candy" msg msg' =>
+              Lens.Family2.Lens msg msg' (Data.ProtoLens.Field "maybe'candy" msg)
+                (Data.ProtoLens.Field "maybe'candy" msg')
+maybe'candy
+  = Data.ProtoLens.field
+      (Data.ProtoLens.ProxySym :: Data.ProtoLens.ProxySym "maybe'candy")
 
 maybe'eggIncubators ::
                     forall msg msg' .
@@ -493,17 +505,6 @@ maybe'pokemonData
       (Data.ProtoLens.ProxySym ::
          Data.ProtoLens.ProxySym "maybe'pokemonData")
 
-maybe'pokemonFamily ::
-                    forall msg msg' .
-                      Data.ProtoLens.HasField "maybe'pokemonFamily" msg msg' =>
-                      Lens.Family2.Lens msg msg'
-                        (Data.ProtoLens.Field "maybe'pokemonFamily" msg)
-                        (Data.ProtoLens.Field "maybe'pokemonFamily" msg')
-maybe'pokemonFamily
-  = Data.ProtoLens.field
-      (Data.ProtoLens.ProxySym ::
-         Data.ProtoLens.ProxySym "maybe'pokemonFamily")
-
 playerCamera ::
              forall msg msg' .
                Data.ProtoLens.HasField "playerCamera" msg msg' =>
@@ -550,14 +551,3 @@ pokemonData ::
 pokemonData
   = Data.ProtoLens.field
       (Data.ProtoLens.ProxySym :: Data.ProtoLens.ProxySym "pokemonData")
-
-pokemonFamily ::
-              forall msg msg' .
-                Data.ProtoLens.HasField "pokemonFamily" msg msg' =>
-                Lens.Family2.Lens msg msg'
-                  (Data.ProtoLens.Field "pokemonFamily" msg)
-                  (Data.ProtoLens.Field "pokemonFamily" msg')
-pokemonFamily
-  = Data.ProtoLens.field
-      (Data.ProtoLens.ProxySym ::
-         Data.ProtoLens.ProxySym "pokemonFamily")

@@ -21,7 +21,7 @@ data UseItemCaptureMessage = UseItemCaptureMessage{_UseItemCaptureMessage'itemId
                                                    :: Proto.POGOProtos.Inventory.Item.ItemId.ItemId,
                                                    _UseItemCaptureMessage'encounterId ::
                                                    Data.Word.Word64,
-                                                   _UseItemCaptureMessage'spawnPointGuid ::
+                                                   _UseItemCaptureMessage'spawnPointId ::
                                                    Data.Text.Text}
                            deriving (Prelude.Show, Prelude.Eq)
 
@@ -45,22 +45,21 @@ instance Data.ProtoLens.HasField "encounterId"
               (\ x__ y__ -> x__{_UseItemCaptureMessage'encounterId = y__})
 
 type instance
-     Data.ProtoLens.Field "spawnPointGuid" UseItemCaptureMessage =
+     Data.ProtoLens.Field "spawnPointId" UseItemCaptureMessage =
      Data.Text.Text
 
-instance Data.ProtoLens.HasField "spawnPointGuid"
+instance Data.ProtoLens.HasField "spawnPointId"
          UseItemCaptureMessage UseItemCaptureMessage where
         field _
-          = Lens.Family2.Unchecked.lens _UseItemCaptureMessage'spawnPointGuid
-              (\ x__ y__ -> x__{_UseItemCaptureMessage'spawnPointGuid = y__})
+          = Lens.Family2.Unchecked.lens _UseItemCaptureMessage'spawnPointId
+              (\ x__ y__ -> x__{_UseItemCaptureMessage'spawnPointId = y__})
 
 instance Data.Default.Class.Default UseItemCaptureMessage where
         def
           = UseItemCaptureMessage{_UseItemCaptureMessage'itemId =
                                     Data.Default.Class.def,
                                   _UseItemCaptureMessage'encounterId = Data.ProtoLens.fieldDefault,
-                                  _UseItemCaptureMessage'spawnPointGuid =
-                                    Data.ProtoLens.fieldDefault}
+                                  _UseItemCaptureMessage'spawnPointId = Data.ProtoLens.fieldDefault}
 
 instance Data.ProtoLens.Message UseItemCaptureMessage where
         descriptor
@@ -75,21 +74,21 @@ instance Data.ProtoLens.Message UseItemCaptureMessage where
                       (Data.ProtoLens.Fixed64Field ::
                          Data.ProtoLens.FieldTypeDescriptor Data.Word.Word64)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional encounterId)
-                spawnPointGuid__field_descriptor
-                  = Data.ProtoLens.FieldDescriptor "spawn_point_guid"
+                spawnPointId__field_descriptor
+                  = Data.ProtoLens.FieldDescriptor "spawn_point_id"
                       (Data.ProtoLens.StringField ::
                          Data.ProtoLens.FieldTypeDescriptor Data.Text.Text)
-                      (Data.ProtoLens.PlainField Data.ProtoLens.Optional spawnPointGuid)
+                      (Data.ProtoLens.PlainField Data.ProtoLens.Optional spawnPointId)
               in
               Data.ProtoLens.MessageDescriptor
                 (Data.Map.fromList
                    [(Data.ProtoLens.Tag 1, itemId__field_descriptor),
                     (Data.ProtoLens.Tag 2, encounterId__field_descriptor),
-                    (Data.ProtoLens.Tag 3, spawnPointGuid__field_descriptor)])
+                    (Data.ProtoLens.Tag 3, spawnPointId__field_descriptor)])
                 (Data.Map.fromList
                    [("item_id", itemId__field_descriptor),
                     ("encounter_id", encounterId__field_descriptor),
-                    ("spawn_point_guid", spawnPointGuid__field_descriptor)])
+                    ("spawn_point_id", spawnPointId__field_descriptor)])
 
 encounterId ::
             forall msg msg' . Data.ProtoLens.HasField "encounterId" msg msg' =>
@@ -107,13 +106,12 @@ itemId
   = Data.ProtoLens.field
       (Data.ProtoLens.ProxySym :: Data.ProtoLens.ProxySym "itemId")
 
-spawnPointGuid ::
-               forall msg msg' .
-                 Data.ProtoLens.HasField "spawnPointGuid" msg msg' =>
-                 Lens.Family2.Lens msg msg'
-                   (Data.ProtoLens.Field "spawnPointGuid" msg)
-                   (Data.ProtoLens.Field "spawnPointGuid" msg')
-spawnPointGuid
+spawnPointId ::
+             forall msg msg' .
+               Data.ProtoLens.HasField "spawnPointId" msg msg' =>
+               Lens.Family2.Lens msg msg'
+                 (Data.ProtoLens.Field "spawnPointId" msg)
+                 (Data.ProtoLens.Field "spawnPointId" msg')
+spawnPointId
   = Data.ProtoLens.field
-      (Data.ProtoLens.ProxySym ::
-         Data.ProtoLens.ProxySym "spawnPointGuid")
+      (Data.ProtoLens.ProxySym :: Data.ProtoLens.ProxySym "spawnPointId")

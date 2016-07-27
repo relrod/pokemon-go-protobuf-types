@@ -16,14 +16,14 @@ import qualified Data.Map
 import qualified Data.ByteString
 
 data FortSummary = FortSummary{_FortSummary'fortSummaryId ::
-                               Data.Int.Int32,
-                               _FortSummary'lastModifiedTimestampMs :: Data.Int.Int32,
-                               _FortSummary'latitude :: Data.Int.Int32,
-                               _FortSummary'longitude :: Data.Int.Int32}
+                               Data.Text.Text,
+                               _FortSummary'lastModifiedTimestampMs :: Data.Int.Int64,
+                               _FortSummary'latitude :: Prelude.Double,
+                               _FortSummary'longitude :: Prelude.Double}
                  deriving (Prelude.Show, Prelude.Eq)
 
 type instance Data.ProtoLens.Field "fortSummaryId" FortSummary =
-     Data.Int.Int32
+     Data.Text.Text
 
 instance Data.ProtoLens.HasField "fortSummaryId" FortSummary
          FortSummary where
@@ -33,7 +33,7 @@ instance Data.ProtoLens.HasField "fortSummaryId" FortSummary
 
 type instance
      Data.ProtoLens.Field "lastModifiedTimestampMs" FortSummary =
-     Data.Int.Int32
+     Data.Int.Int64
 
 instance Data.ProtoLens.HasField "lastModifiedTimestampMs"
          FortSummary FortSummary where
@@ -42,7 +42,7 @@ instance Data.ProtoLens.HasField "lastModifiedTimestampMs"
               (\ x__ y__ -> x__{_FortSummary'lastModifiedTimestampMs = y__})
 
 type instance Data.ProtoLens.Field "latitude" FortSummary =
-     Data.Int.Int32
+     Prelude.Double
 
 instance Data.ProtoLens.HasField "latitude" FortSummary FortSummary
          where
@@ -51,7 +51,7 @@ instance Data.ProtoLens.HasField "latitude" FortSummary FortSummary
               (\ x__ y__ -> x__{_FortSummary'latitude = y__})
 
 type instance Data.ProtoLens.Field "longitude" FortSummary =
-     Data.Int.Int32
+     Prelude.Double
 
 instance Data.ProtoLens.HasField "longitude" FortSummary
          FortSummary where
@@ -71,24 +71,24 @@ instance Data.ProtoLens.Message FortSummary where
         descriptor
           = let fortSummaryId__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "fort_summary_id"
-                      (Data.ProtoLens.Int32Field ::
-                         Data.ProtoLens.FieldTypeDescriptor Data.Int.Int32)
+                      (Data.ProtoLens.StringField ::
+                         Data.ProtoLens.FieldTypeDescriptor Data.Text.Text)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional fortSummaryId)
                 lastModifiedTimestampMs__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "last_modified_timestamp_ms"
-                      (Data.ProtoLens.Int32Field ::
-                         Data.ProtoLens.FieldTypeDescriptor Data.Int.Int32)
+                      (Data.ProtoLens.Int64Field ::
+                         Data.ProtoLens.FieldTypeDescriptor Data.Int.Int64)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional
                          lastModifiedTimestampMs)
                 latitude__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "latitude"
-                      (Data.ProtoLens.Int32Field ::
-                         Data.ProtoLens.FieldTypeDescriptor Data.Int.Int32)
+                      (Data.ProtoLens.DoubleField ::
+                         Data.ProtoLens.FieldTypeDescriptor Prelude.Double)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional latitude)
                 longitude__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "longitude"
-                      (Data.ProtoLens.Int32Field ::
-                         Data.ProtoLens.FieldTypeDescriptor Data.Int.Int32)
+                      (Data.ProtoLens.DoubleField ::
+                         Data.ProtoLens.FieldTypeDescriptor Prelude.Double)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional longitude)
               in
               Data.ProtoLens.MessageDescriptor

@@ -15,11 +15,12 @@ import qualified Data.Int
 import qualified Data.Word
 import qualified Data.Map
 import qualified Data.ByteString
+import qualified Proto.POGOProtos.Enums.PokemonId
 
 data GetIncensePokemonResponse = GetIncensePokemonResponse{_GetIncensePokemonResponse'result
                                                            :: GetIncensePokemonResponse'Result,
-                                                           _GetIncensePokemonResponse'pokemonTypeId
-                                                           :: Data.Int.Int32,
+                                                           _GetIncensePokemonResponse'pokemonId ::
+                                                           Proto.POGOProtos.Enums.PokemonId.PokemonId,
                                                            _GetIncensePokemonResponse'latitude ::
                                                            Prelude.Double,
                                                            _GetIncensePokemonResponse'longitude ::
@@ -43,15 +44,14 @@ instance Data.ProtoLens.HasField "result" GetIncensePokemonResponse
               (\ x__ y__ -> x__{_GetIncensePokemonResponse'result = y__})
 
 type instance
-     Data.ProtoLens.Field "pokemonTypeId" GetIncensePokemonResponse =
-     Data.Int.Int32
+     Data.ProtoLens.Field "pokemonId" GetIncensePokemonResponse =
+     Proto.POGOProtos.Enums.PokemonId.PokemonId
 
-instance Data.ProtoLens.HasField "pokemonTypeId"
+instance Data.ProtoLens.HasField "pokemonId"
          GetIncensePokemonResponse GetIncensePokemonResponse where
         field _
-          = Lens.Family2.Unchecked.lens
-              _GetIncensePokemonResponse'pokemonTypeId
-              (\ x__ y__ -> x__{_GetIncensePokemonResponse'pokemonTypeId = y__})
+          = Lens.Family2.Unchecked.lens _GetIncensePokemonResponse'pokemonId
+              (\ x__ y__ -> x__{_GetIncensePokemonResponse'pokemonId = y__})
 
 type instance
      Data.ProtoLens.Field "latitude" GetIncensePokemonResponse =
@@ -113,8 +113,7 @@ instance Data.Default.Class.Default GetIncensePokemonResponse where
         def
           = GetIncensePokemonResponse{_GetIncensePokemonResponse'result =
                                         Data.Default.Class.def,
-                                      _GetIncensePokemonResponse'pokemonTypeId =
-                                        Data.ProtoLens.fieldDefault,
+                                      _GetIncensePokemonResponse'pokemonId = Data.Default.Class.def,
                                       _GetIncensePokemonResponse'latitude =
                                         Data.ProtoLens.fieldDefault,
                                       _GetIncensePokemonResponse'longitude =
@@ -134,11 +133,12 @@ instance Data.ProtoLens.Message GetIncensePokemonResponse where
                          Data.ProtoLens.FieldTypeDescriptor
                            GetIncensePokemonResponse'Result)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional result)
-                pokemonTypeId__field_descriptor
-                  = Data.ProtoLens.FieldDescriptor "pokemon_type_id"
-                      (Data.ProtoLens.Int32Field ::
-                         Data.ProtoLens.FieldTypeDescriptor Data.Int.Int32)
-                      (Data.ProtoLens.PlainField Data.ProtoLens.Optional pokemonTypeId)
+                pokemonId__field_descriptor
+                  = Data.ProtoLens.FieldDescriptor "pokemon_id"
+                      (Data.ProtoLens.EnumField ::
+                         Data.ProtoLens.FieldTypeDescriptor
+                           Proto.POGOProtos.Enums.PokemonId.PokemonId)
+                      (Data.ProtoLens.PlainField Data.ProtoLens.Optional pokemonId)
                 latitude__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "latitude"
                       (Data.ProtoLens.DoubleField ::
@@ -157,7 +157,7 @@ instance Data.ProtoLens.Message GetIncensePokemonResponse where
                          encounterLocation)
                 encounterId__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "encounter_id"
-                      (Data.ProtoLens.UInt64Field ::
+                      (Data.ProtoLens.Fixed64Field ::
                          Data.ProtoLens.FieldTypeDescriptor Data.Word.Word64)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional encounterId)
                 disappearTimestampMs__field_descriptor
@@ -170,7 +170,7 @@ instance Data.ProtoLens.Message GetIncensePokemonResponse where
               Data.ProtoLens.MessageDescriptor
                 (Data.Map.fromList
                    [(Data.ProtoLens.Tag 1, result__field_descriptor),
-                    (Data.ProtoLens.Tag 2, pokemonTypeId__field_descriptor),
+                    (Data.ProtoLens.Tag 2, pokemonId__field_descriptor),
                     (Data.ProtoLens.Tag 3, latitude__field_descriptor),
                     (Data.ProtoLens.Tag 4, longitude__field_descriptor),
                     (Data.ProtoLens.Tag 5, encounterLocation__field_descriptor),
@@ -178,7 +178,7 @@ instance Data.ProtoLens.Message GetIncensePokemonResponse where
                     (Data.ProtoLens.Tag 7, disappearTimestampMs__field_descriptor)])
                 (Data.Map.fromList
                    [("result", result__field_descriptor),
-                    ("pokemon_type_id", pokemonTypeId__field_descriptor),
+                    ("pokemon_id", pokemonId__field_descriptor),
                     ("latitude", latitude__field_descriptor),
                     ("longitude", longitude__field_descriptor),
                     ("encounter_location", encounterLocation__field_descriptor),
@@ -308,16 +308,13 @@ longitude
   = Data.ProtoLens.field
       (Data.ProtoLens.ProxySym :: Data.ProtoLens.ProxySym "longitude")
 
-pokemonTypeId ::
-              forall msg msg' .
-                Data.ProtoLens.HasField "pokemonTypeId" msg msg' =>
-                Lens.Family2.Lens msg msg'
-                  (Data.ProtoLens.Field "pokemonTypeId" msg)
-                  (Data.ProtoLens.Field "pokemonTypeId" msg')
-pokemonTypeId
+pokemonId ::
+          forall msg msg' . Data.ProtoLens.HasField "pokemonId" msg msg' =>
+            Lens.Family2.Lens msg msg' (Data.ProtoLens.Field "pokemonId" msg)
+              (Data.ProtoLens.Field "pokemonId" msg')
+pokemonId
   = Data.ProtoLens.field
-      (Data.ProtoLens.ProxySym ::
-         Data.ProtoLens.ProxySym "pokemonTypeId")
+      (Data.ProtoLens.ProxySym :: Data.ProtoLens.ProxySym "pokemonId")
 
 result ::
        forall msg msg' . Data.ProtoLens.HasField "result" msg msg' =>

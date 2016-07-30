@@ -1,5 +1,5 @@
 name:                pokemon-go-protobuf-types
-version:             0.1.1
+version:             0.1.2
 synopsis:            Haskell types for the Pokemon Go protobuf protocol.
 homepage:            https://github.com/relrod/pokemon-go-protobuf-types
 license:             BSD3

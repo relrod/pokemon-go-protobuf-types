@@ -23,8 +23,7 @@ data ResponseEnvelope = ResponseEnvelope{_ResponseEnvelope'statusCode
                                          _ResponseEnvelope'requestId :: Data.Word.Word64,
                                          _ResponseEnvelope'apiUrl :: Data.Text.Text,
                                          _ResponseEnvelope'unknown6 ::
-                                         Prelude.Maybe
-                                           Proto.POGOProtos.Networking.Envelopes.Unknown6Response.Unknown6Response,
+                                         [Proto.POGOProtos.Networking.Envelopes.Unknown6Response.Unknown6Response],
                                          _ResponseEnvelope'authTicket ::
                                          Prelude.Maybe
                                            Proto.POGOProtos.Networking.Envelopes.AuthTicket.AuthTicket,
@@ -60,20 +59,9 @@ instance Data.ProtoLens.HasField "apiUrl" ResponseEnvelope
               (\ x__ y__ -> x__{_ResponseEnvelope'apiUrl = y__})
 
 type instance Data.ProtoLens.Field "unknown6" ResponseEnvelope =
-     Proto.POGOProtos.Networking.Envelopes.Unknown6Response.Unknown6Response
+     [Proto.POGOProtos.Networking.Envelopes.Unknown6Response.Unknown6Response]
 
 instance Data.ProtoLens.HasField "unknown6" ResponseEnvelope
-         ResponseEnvelope where
-        field _
-          = (Prelude..) maybe'unknown6
-              (Data.ProtoLens.maybeLens Data.Default.Class.def)
-
-type instance
-     Data.ProtoLens.Field "maybe'unknown6" ResponseEnvelope =
-     Prelude.Maybe
-       Proto.POGOProtos.Networking.Envelopes.Unknown6Response.Unknown6Response
-
-instance Data.ProtoLens.HasField "maybe'unknown6" ResponseEnvelope
          ResponseEnvelope where
         field _
           = Lens.Family2.Unchecked.lens _ResponseEnvelope'unknown6
@@ -123,7 +111,7 @@ instance Data.Default.Class.Default ResponseEnvelope where
                                Data.ProtoLens.fieldDefault,
                              _ResponseEnvelope'requestId = Data.ProtoLens.fieldDefault,
                              _ResponseEnvelope'apiUrl = Data.ProtoLens.fieldDefault,
-                             _ResponseEnvelope'unknown6 = Prelude.Nothing,
+                             _ResponseEnvelope'unknown6 = [],
                              _ResponseEnvelope'authTicket = Prelude.Nothing,
                              _ResponseEnvelope'returns = [],
                              _ResponseEnvelope'error = Data.ProtoLens.fieldDefault}
@@ -150,7 +138,7 @@ instance Data.ProtoLens.Message ResponseEnvelope where
                       (Data.ProtoLens.MessageField ::
                          Data.ProtoLens.FieldTypeDescriptor
                            Proto.POGOProtos.Networking.Envelopes.Unknown6Response.Unknown6Response)
-                      (Data.ProtoLens.OptionalField maybe'unknown6)
+                      (Data.ProtoLens.RepeatedField Data.ProtoLens.Unpacked unknown6)
                 authTicket__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "auth_ticket"
                       (Data.ProtoLens.MessageField ::
@@ -295,17 +283,6 @@ maybe'authTicket
   = Data.ProtoLens.field
       (Data.ProtoLens.ProxySym ::
          Data.ProtoLens.ProxySym "maybe'authTicket")
-
-maybe'unknown6 ::
-               forall msg msg' .
-                 Data.ProtoLens.HasField "maybe'unknown6" msg msg' =>
-                 Lens.Family2.Lens msg msg'
-                   (Data.ProtoLens.Field "maybe'unknown6" msg)
-                   (Data.ProtoLens.Field "maybe'unknown6" msg')
-maybe'unknown6
-  = Data.ProtoLens.field
-      (Data.ProtoLens.ProxySym ::
-         Data.ProtoLens.ProxySym "maybe'unknown6")
 
 requestId ::
           forall msg msg' . Data.ProtoLens.HasField "requestId" msg msg' =>

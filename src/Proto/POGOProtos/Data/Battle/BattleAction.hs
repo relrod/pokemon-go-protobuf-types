@@ -249,7 +249,7 @@ instance Data.ProtoLens.Message BattleAction where
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional targetIndex)
                 activePokemonId__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "active_pokemon_id"
-                      (Data.ProtoLens.UInt64Field ::
+                      (Data.ProtoLens.Fixed64Field ::
                          Data.ProtoLens.FieldTypeDescriptor Data.Word.Word64)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional activePokemonId)
                 playerJoined__field_descriptor
@@ -285,7 +285,7 @@ instance Data.ProtoLens.Message BattleAction where
                       (Data.ProtoLens.OptionalField maybe'playerLeft)
                 targetPokemonId__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "target_pokemon_id"
-                      (Data.ProtoLens.UInt64Field ::
+                      (Data.ProtoLens.Fixed64Field ::
                          Data.ProtoLens.FieldTypeDescriptor Data.Word.Word64)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional targetPokemonId)
               in

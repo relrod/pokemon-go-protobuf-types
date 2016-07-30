@@ -24,8 +24,7 @@ data RequestEnvelope = RequestEnvelope{_RequestEnvelope'statusCode
                                        _RequestEnvelope'requests ::
                                        [Proto.POGOProtos.Networking.Requests.Request.Request],
                                        _RequestEnvelope'unknown6 ::
-                                       Prelude.Maybe
-                                         Proto.POGOProtos.Networking.Envelopes.Unknown6.Unknown6,
+                                       [Proto.POGOProtos.Networking.Envelopes.Unknown6.Unknown6],
                                        _RequestEnvelope'latitude :: Prelude.Double,
                                        _RequestEnvelope'longitude :: Prelude.Double,
                                        _RequestEnvelope'altitude :: Prelude.Double,
@@ -65,20 +64,9 @@ instance Data.ProtoLens.HasField "requests" RequestEnvelope
               (\ x__ y__ -> x__{_RequestEnvelope'requests = y__})
 
 type instance Data.ProtoLens.Field "unknown6" RequestEnvelope =
-     Proto.POGOProtos.Networking.Envelopes.Unknown6.Unknown6
+     [Proto.POGOProtos.Networking.Envelopes.Unknown6.Unknown6]
 
 instance Data.ProtoLens.HasField "unknown6" RequestEnvelope
-         RequestEnvelope where
-        field _
-          = (Prelude..) maybe'unknown6
-              (Data.ProtoLens.maybeLens Data.Default.Class.def)
-
-type instance Data.ProtoLens.Field "maybe'unknown6" RequestEnvelope
-     =
-     Prelude.Maybe
-       Proto.POGOProtos.Networking.Envelopes.Unknown6.Unknown6
-
-instance Data.ProtoLens.HasField "maybe'unknown6" RequestEnvelope
          RequestEnvelope where
         field _
           = Lens.Family2.Unchecked.lens _RequestEnvelope'unknown6
@@ -163,8 +151,7 @@ instance Data.Default.Class.Default RequestEnvelope where
           = RequestEnvelope{_RequestEnvelope'statusCode =
                               Data.ProtoLens.fieldDefault,
                             _RequestEnvelope'requestId = Data.ProtoLens.fieldDefault,
-                            _RequestEnvelope'requests = [],
-                            _RequestEnvelope'unknown6 = Prelude.Nothing,
+                            _RequestEnvelope'requests = [], _RequestEnvelope'unknown6 = [],
                             _RequestEnvelope'latitude = Data.ProtoLens.fieldDefault,
                             _RequestEnvelope'longitude = Data.ProtoLens.fieldDefault,
                             _RequestEnvelope'altitude = Data.ProtoLens.fieldDefault,
@@ -195,7 +182,7 @@ instance Data.ProtoLens.Message RequestEnvelope where
                       (Data.ProtoLens.MessageField ::
                          Data.ProtoLens.FieldTypeDescriptor
                            Proto.POGOProtos.Networking.Envelopes.Unknown6.Unknown6)
-                      (Data.ProtoLens.OptionalField maybe'unknown6)
+                      (Data.ProtoLens.RepeatedField Data.ProtoLens.Unpacked unknown6)
                 latitude__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "latitude"
                       (Data.ProtoLens.DoubleField ::
@@ -448,17 +435,6 @@ maybe'token ::
 maybe'token
   = Data.ProtoLens.field
       (Data.ProtoLens.ProxySym :: Data.ProtoLens.ProxySym "maybe'token")
-
-maybe'unknown6 ::
-               forall msg msg' .
-                 Data.ProtoLens.HasField "maybe'unknown6" msg msg' =>
-                 Lens.Family2.Lens msg msg'
-                   (Data.ProtoLens.Field "maybe'unknown6" msg)
-                   (Data.ProtoLens.Field "maybe'unknown6" msg')
-maybe'unknown6
-  = Data.ProtoLens.field
-      (Data.ProtoLens.ProxySym ::
-         Data.ProtoLens.ProxySym "maybe'unknown6")
 
 provider ::
          forall msg msg' . Data.ProtoLens.HasField "provider" msg msg' =>

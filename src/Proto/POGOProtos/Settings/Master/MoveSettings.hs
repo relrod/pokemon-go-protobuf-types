@@ -14,11 +14,11 @@ import qualified Data.Int
 import qualified Data.Word
 import qualified Data.Map
 import qualified Data.ByteString
-import qualified Proto.POGOProtos.Enums.PokemonMovementType
+import qualified Proto.POGOProtos.Enums.PokemonMove
 import qualified Proto.POGOProtos.Enums.PokemonType
 
 data MoveSettings = MoveSettings{_MoveSettings'movementId ::
-                                 Proto.POGOProtos.Enums.PokemonMovementType.PokemonMovementType,
+                                 Proto.POGOProtos.Enums.PokemonMove.PokemonMove,
                                  _MoveSettings'animationId :: Data.Int.Int32,
                                  _MoveSettings'pokemonType ::
                                  Proto.POGOProtos.Enums.PokemonType.PokemonType,
@@ -37,7 +37,7 @@ data MoveSettings = MoveSettings{_MoveSettings'movementId ::
                   deriving (Prelude.Show, Prelude.Eq)
 
 type instance Data.ProtoLens.Field "movementId" MoveSettings =
-     Proto.POGOProtos.Enums.PokemonMovementType.PokemonMovementType
+     Proto.POGOProtos.Enums.PokemonMove.PokemonMove
 
 instance Data.ProtoLens.HasField "movementId" MoveSettings
          MoveSettings where
@@ -196,7 +196,7 @@ instance Data.ProtoLens.Message MoveSettings where
                   = Data.ProtoLens.FieldDescriptor "movement_id"
                       (Data.ProtoLens.EnumField ::
                          Data.ProtoLens.FieldTypeDescriptor
-                           Proto.POGOProtos.Enums.PokemonMovementType.PokemonMovementType)
+                           Proto.POGOProtos.Enums.PokemonMove.PokemonMove)
                       (Data.ProtoLens.PlainField Data.ProtoLens.Optional movementId)
                 animationId__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "animation_id"

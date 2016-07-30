@@ -15,17 +15,18 @@ import qualified Data.Word
 import qualified Data.Map
 import qualified Data.ByteString
 
-data Unknown6 = Unknown6{_Unknown6'unknown1 :: Data.Int.Int32,
+data Unknown6 = Unknown6{_Unknown6'requestType :: Data.Int.Int32,
                          _Unknown6'unknown2 :: Prelude.Maybe Unknown6'Unknown2}
               deriving (Prelude.Show, Prelude.Eq)
 
-type instance Data.ProtoLens.Field "unknown1" Unknown6 =
+type instance Data.ProtoLens.Field "requestType" Unknown6 =
      Data.Int.Int32
 
-instance Data.ProtoLens.HasField "unknown1" Unknown6 Unknown6 where
+instance Data.ProtoLens.HasField "requestType" Unknown6 Unknown6
+         where
         field _
-          = Lens.Family2.Unchecked.lens _Unknown6'unknown1
-              (\ x__ y__ -> x__{_Unknown6'unknown1 = y__})
+          = Lens.Family2.Unchecked.lens _Unknown6'requestType
+              (\ x__ y__ -> x__{_Unknown6'requestType = y__})
 
 type instance Data.ProtoLens.Field "unknown2" Unknown6 =
      Unknown6'Unknown2
@@ -46,16 +47,16 @@ instance Data.ProtoLens.HasField "maybe'unknown2" Unknown6 Unknown6
 
 instance Data.Default.Class.Default Unknown6 where
         def
-          = Unknown6{_Unknown6'unknown1 = Data.ProtoLens.fieldDefault,
+          = Unknown6{_Unknown6'requestType = Data.ProtoLens.fieldDefault,
                      _Unknown6'unknown2 = Prelude.Nothing}
 
 instance Data.ProtoLens.Message Unknown6 where
         descriptor
-          = let unknown1__field_descriptor
-                  = Data.ProtoLens.FieldDescriptor "unknown1"
+          = let requestType__field_descriptor
+                  = Data.ProtoLens.FieldDescriptor "request_type"
                       (Data.ProtoLens.Int32Field ::
                          Data.ProtoLens.FieldTypeDescriptor Data.Int.Int32)
-                      (Data.ProtoLens.PlainField Data.ProtoLens.Optional unknown1)
+                      (Data.ProtoLens.PlainField Data.ProtoLens.Optional requestType)
                 unknown2__field_descriptor
                   = Data.ProtoLens.FieldDescriptor "unknown2"
                       (Data.ProtoLens.MessageField ::
@@ -64,10 +65,10 @@ instance Data.ProtoLens.Message Unknown6 where
               in
               Data.ProtoLens.MessageDescriptor
                 (Data.Map.fromList
-                   [(Data.ProtoLens.Tag 1, unknown1__field_descriptor),
+                   [(Data.ProtoLens.Tag 1, requestType__field_descriptor),
                     (Data.ProtoLens.Tag 2, unknown2__field_descriptor)])
                 (Data.Map.fromList
-                   [("unknown1", unknown1__field_descriptor),
+                   [("request_type", requestType__field_descriptor),
                     ("unknown2", unknown2__field_descriptor)])
 
 data Unknown6'Unknown2 = Unknown6'Unknown2{_Unknown6'Unknown2'unknown1
@@ -111,6 +112,14 @@ maybe'unknown2
   = Data.ProtoLens.field
       (Data.ProtoLens.ProxySym ::
          Data.ProtoLens.ProxySym "maybe'unknown2")
+
+requestType ::
+            forall msg msg' . Data.ProtoLens.HasField "requestType" msg msg' =>
+              Lens.Family2.Lens msg msg' (Data.ProtoLens.Field "requestType" msg)
+                (Data.ProtoLens.Field "requestType" msg')
+requestType
+  = Data.ProtoLens.field
+      (Data.ProtoLens.ProxySym :: Data.ProtoLens.ProxySym "requestType")
 
 unknown1 ::
          forall msg msg' . Data.ProtoLens.HasField "unknown1" msg msg' =>
